@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>漁人三兩事</title>
+    <link rel="shortcut icon" href="title圖標.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.css" />
+    <script src="jquery-1.9.1.min.js"></script>
+    <script src="jquery.mobile-1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyA6gcpi9-EnxyDjXeWzkU9DHpyB5iyEUvY"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <style>
+        html, body, h1, h2, h3, h4, h5 {
+            font-family: "Lato", sans-serif;
+        }
+        .w3-left {
+            cursor: pointer;
+        }
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+         width: 100%;
+         margin: auto;
+  }
+    </style>
+
+
+</head>
+
+<body onresize="myFunction()">
+
+<!-- Navbar -->
+<ul class="w3-navbar w3-left-align w3-black w3-center w3-top w3-large w3-navbar-inverse">
+    <li class="w3-left" style="width:50% !important"><a href="main_OK .html" target="_blank" class="w3-padding-large w3-hover-light-grey" title="首頁"><i class="fa fa-home" style="font-size:36px"></i></a></li>
+    
+    <li class="w3-left" style="width:50% !important"><a href="https://www.facebook.com/%E6%BC%81%E4%BA%BA%E4%B8%89%E5%85%A9%E4%BA%8B-918610178194365/" target="_blank" class="w3-padding-large w3-hover-light-grey w3-hover-text-indigo" title="Facebook粉絲專頁"><i class="fa fa-facebook-square" style="font-size:36px"></i></a></li>
+</ul>
+
+    <div>
+        <div data-role="page">          
+
+            <div data-role="content" style="margin-top:80px;margin-bottom:100px; text-align:center;">
+                <h1 style="font-family:標楷體;font-size:2em;font-weight:900;text-align:center;color:forestgreen"><b>請點擊下方彈跳圖標<br /><br /></b></h1>              
+                <div id="googleMap" style="width: 100%; height: 750px;margin-top:20px"></div>
+           </div>            
+        </div>
+                
+        <script>
+		var mapProp = {
+		    center: new google.maps.LatLng(22.482427, 120.402852),
+			zoom : 16,
+			mapTypeId : google.maps.MapTypeId.ROADMAP
+		};//一開始進去的地圖中心
+		var map = new google.maps.Map($("#googleMap")[0], mapProp);
+
+		var pinIcon = new google.maps.MarkerImage(
+            "Azure.png",
+            null, /* size is determined at runtime */
+            null, /* origin is 0,0 */
+            null, /* anchor is bottom center of the scaled image */
+            new google.maps.Size(68, 68)
+        ); //改變圖標大小
+
+		var marker0 = new google.maps.Marker({
+		    position: new google.maps.LatLng(22.479047, 120.411240),
+		    icon: pinIcon,
+		    animation: google.maps.Animation.BOUNCE //會跳的圖標
+		});//var sanweiSchool = new google.maps.LatLng(22.479047, 120.411240);//汕尾國小
+
+		var marker1 = new google.maps.Marker({
+		    position: new google.maps.LatLng(22.478106, 120.408224),
+		    icon: pinIcon,
+		    animation: google.maps.Animation.BOUNCE //會跳的圖標
+		});//var sanchingTemple = new google.maps.LatLng(22.478106, 120.408224);//汕尾三清宮
+
+		var marker2 = new google.maps.Marker({
+		    position: new google.maps.LatLng(22.482349, 120.397435),
+		    icon: pinIcon,
+		    animation: google.maps.Animation.BOUNCE //會跳的圖標
+		});//var fengyunTemple = new google.maps.LatLng(22.482349, 120.397435);//中芸鳳芸宮
+
+		var marker3 = new google.maps.Marker({
+		    position: new google.maps.LatLng(22.485091, 120.399609),
+		    icon: pinIcon,
+		    animation: google.maps.Animation.BOUNCE //會跳的圖標
+		});//var fishpark = new google.maps.LatLng(22.485091, 120.399609);//漁港公園
+
+		var marker4 = new google.maps.Marker({
+		    position: new google.maps.LatLng(22.486136, 120.399073),
+		    icon: pinIcon,
+		    animation: google.maps.Animation.BOUNCE //會跳的圖標
+		});//var dragonboat = new google.maps.LatLng(22.486136, 120.399073);//端午龍舟
+
+		marker0.setMap(map);
+		marker1.setMap(map);
+		marker2.setMap(map);
+		marker3.setMap(map);
+		marker4.setMap(map);
+
+	          google.maps.event.addListener(marker0, 'click',
+                    function infowindow() {
+                        var dd = '<div id="content">'+'<div id="siteNotice">'+'</div>'+
+              '<h1 id="firstHeading" class="firstHeading" style="font-family:標楷體;font-size:2em;font-weight:900;">汕尾車鼓藝陣</h1>' +
+              '<div id="bodyContent">'+
+              '<p>林園區汕尾國小擁有<b>全國唯一</b>的車鼓陣，據老師傅言，民國八年即有汕尾車鼓藝陣的存在，車鼓陣是一般民俗藝陣中最富人文色彩的的民俗活動，就內容來說：以二胡、大廣弦、月琴等南管樂器，配合舞者的四片竹板敲擊產生節奏，表演的「生」與「旦」，依曲調唱曲，'+
+              '女「旦」為中心舞蹈，男「生」繞其四周變化舞步，基本上屬於「文陣」與一般舞龍、舞獅、跳鼓陣等「武陣」不同。車鼓陣，又稱「弄車鼓」、「車鼓弄」，是一種搭配音樂伴奏歌舞表演。在日據時代末期，光復初期，汕尾的車鼓陣最興盛的時期在光復後那一段時間，當時車鼓陣文化深入汕尾地區每一個家庭中，不論大小迎神賽會，汕尾車鼓陣都應邀出現在其中表演。</p>'+
+              '<p style="font-size:1em;font"><b>相關連結：</b><a href="http://www.loxa.edu.tw/schoolweb.html?webId=301" target="_blank" style="color:blue;">' +
+              '汕尾國小 &nbsp;' + ' <a href="http://www.swp.ks.edu.tw/school/page6.htm" target="_blank" style="color:blue;">' + '汕尾車鼓藝陣 ' + '</div>' +
+
+              '</div>' + '<dl id="google_map" >' + '<dt ><img src="img/storymap/車鼓陣(汕尾國小)/sanwei0.jpg" style ="width:300px;height:200px;"> &nbsp;<img src="img/storymap/車鼓陣(汕尾國小)/sanwei1.jpg" style ="width:300px;height:200px;"></dt></dl>';
+                        var infowindow = new google.maps.InfoWindow({
+                            content: dd,              
+                            minWidth: 200
+                        });
+                        infowindow.open(map, marker0);          
+                    });  //汕尾國小
+
+
+	          google.maps.event.addListener(marker1, 'click',
+                     function infowindow() {
+                         var dd = '<div id="content">' + '<div id="siteNotice">' +'</div>' +
+              '<h1 id="firstHeading" class="firstHeading" style="font-family:標楷體;font-size:2em;font-weight:900;">汕尾三清宮</h1>' +
+              '<div id="bodyContent">' +
+              '<p>主祀五府千歲，配祀萬善爺、齊天大聖等神；別於其他五府千歲廟，是由池府千歲坐大位；廟內供有兩艘神舟，廟堂為早期建築，後香火鼎盛，但裡面採光不佳，廟方決定翻修。三清宮有家將團一組，不過現已經失傳；但每年固定迎王送王，仍是林園鄉目前唯一有請(送)王的廟宇。</p>' +
+              '<p> 以下為三清宮平安遶境及海上進香活動照 </p>'+
+
+               '</div>' + '<dl id="google_map" >' + '<dt ><img src="img/storymap/三清宮/sanching0.jpg" style ="width:300px;height:200px;margin:5px;"><img src="img/storymap/三清宮/sanching1.jpg" style ="width:300px;height:200px;margin:5px;"><img src="img/storymap/三清宮/sanching2.jpg" style ="width:300px;height:200px;margin:5px;"><img src="img/storymap/三清宮/sanching3.jpg" style ="width:300px;height:200px;margin:5px;"></dt></dl>';
+
+                         var infowindow = new google.maps.InfoWindow({
+                             content: dd,
+                             minWidth: 200
+                         });
+                         infowindow.open(map, marker1);
+                     }); //汕尾三清宮
+
+
+	          google.maps.event.addListener(marker2, 'click',
+                     function infowindow() {
+                         var dd = '<div id="content">' +'<div id="siteNotice">' +'</div>' +
+              '<h1 id="firstHeading" class="firstHeading" style="font-family:標楷體;font-size:2em;font-weight:900;">中芸鳳芸宮</h1>' +
+              '<div id="bodyContent">' +
+              '<p>又名媽祖廟，奉祀之神乃福建莆田湄洲嶼神女林默娘，本宮緣起於清光緒十二年(西元一八八六年歲次丙戌)年前,有一艘廣東省潮州南澳島嶼貨船到此載貨，遭遇風浪擊沉，其中一位船客奉持媽祖金身安抵中芸灘頭，安奉於葛府千歲小祠祭祀，為感謝護持庇佑之恩，於是搭寮祭祀並早晚焚香膜拜，嗣後改築瓦厝後，又從林子邊(林園)廖厝取青石珠作地基建成飛宇宏廈之形。並經歷三次翻修，終於民國七十年十一月落成巍峨壯觀之崇台高閣，而告完成如今之鳳芸宮。</p>' +
+              '<p> 以下為鳳芸宮海上進香活動照，漁民們以漁船載著媽祖神轎出海繞行，以取巡境安民之效。 </p>' +
+
+               '</div>' + '<dl id="google_map" >' + '<dt ><img src="img/storymap/鳳芸宮/fengyun0.jpg" style ="width:300px;height:200px;margin:5px;"><img src="img/storymap/鳳芸宮/fengyun1.jpg" style ="width:300px;height:200px;margin:5px;"><img src="img/storymap/鳳芸宮/fengyun2.jpg" style ="width:300px;height:200px;margin:5px;"><img src="img/storymap/鳳芸宮/fengyun3.jpg" style ="width:300px;height:200px;margin:5px;"></dt></dl>';
+
+                         var infowindow = new google.maps.InfoWindow({
+                             content: dd,
+                             minWidth: 200
+                         });
+                         infowindow.open(map, marker2);
+                     }); //中芸鳳芸宮
+
+
+	          google.maps.event.addListener(marker3, 'click',
+                     function infowindow() {
+                         var dd = '<div id="content">' + '<div id="siteNotice">' + '</div>' +
+             '<h1 id="firstHeading" class="firstHeading" style="font-family:標楷體;font-size:2em;font-weight:900;">漁港公園</h1>' +
+             '<div id="bodyContent">' +
+             '<p>中芸漁港是林園區最大的漁港，旁原為窪地及魚塭，經耕作人改良變成旱地，經地方人士爭取而興建公園，此漁港公園為林園第一個大型公園，民眾來公園可以賞景喝咖啡，是個遊憩的好去處。</p>' +
+            
+               '</div>' + '<dl id="google_map" >' + '<dt ><img src="img/storymap/漁港公園/fishpark0.jpg" style ="width:300px;height:200px;">&nbsp;<img src="img/storymap/漁港公園/fishpark1.jpg" style ="width:300px;height:200px;"></dt></dl>';
+
+                         var infowindow = new google.maps.InfoWindow({
+                             content: dd,
+                             minWidth: 200
+                         });
+                         infowindow.open(map, marker3);
+                     }); //漁港公園
+
+	          google.maps.event.addListener(marker4, 'click',
+                     function infowindow() {
+                         var dd = '<div id="content">' + '<div id="siteNotice">' + '</div>' +
+              '<h1 id="firstHeading" class="firstHeading" style="font-family:標楷體;font-size:2em;font-weight:900;">端午賽龍舟</h1>' +
+              '<div id="bodyContent">' +
+              '<p>隆隆的鼓聲、整齊劃一的動作，高雄林園中芸漁港傳統龍舟錦標賽活動已舉辦二十餘年，年年依循傳統，而近年更有全台首創異舟同向U型龍舟拔河拉力賽。高雄地區舉辦龍舟競賽僅有愛河與林園中芸漁港，而中芸傳統龍舟競賽的競賽水道位在出海口，水流潮汐差異大，比賽更具挑戰性，在此除熱力的日間龍舟賽程外，更有徐徐微風與LED燈光交織的夜間龍舟競渡，從白天至夜晚呈現截然不同的漁港風貌，加油聲此起彼落毫不間斷，展現林園地區充滿活力與朝氣的一面。</p>' +
+              
+               '</div>' + '<dl id="google_map" >' + '<dt ><img src="img/storymap/龍舟/dragonboat0.jpg" style ="width:300px;height:200px;margin:5px;"><img src="img/storymap/龍舟/dragonboat1.jpg" style ="width:300px;height:200px;margin:5px;"><img src="img/storymap/龍舟/dragonboat2.jpg" style ="width:300px;height:200px;margin:5px;"><img src="img/storymap/龍舟/dragonboat3.jpg" style ="width:300px;height:200px;margin:5px;"></dt></dl>';
+
+                         var infowindow = new google.maps.InfoWindow({
+                             content: dd,
+                             minWidth: 200
+                         });
+                         infowindow.open(map, marker4);
+                     }); //端午龍舟
+		
+        </script>
+
+
+        
+    </div>
+
+    
+
+
+</body>
+</html>
+
